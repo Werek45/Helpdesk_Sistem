@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard - Helpdesk Corp</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="sidebar">
+        <h2>Thindesk Clone</h2>
+        <ul>
+            <li>Dashboard</li>
+            <li>Meus Chamados</li>
+            <li>Abrir Chamado</li>
+            <li>Configurações</li>
+        </ul>
+    </div>
+    <div class="main-content">
+        <header>
+            <h1>Visão Geral do Suporte</h1>
+            <div class="user-info">Usuário: Admin | Versão: 1.0.0-beta</div>
+        </header>
+        
+        <div class="cards">
+            <div class="card blue">
+                <h3>Chamados Abertos</h3>
+                <p>12</p>
+            </div>
+            <div class="card orange">
+                <h3>Em Andamento</h3>
+                <p>5</p>
+            </div>
+            <div class="card green">
+                <h3>Concluídos (Hoje)</h3>
+                <p>8</p>
+            </div>
+            <div class="card red">
+                <h3>Críticos</h3>
+                <p>2</p>
+            </div>
+        </div>
+
+        <div class="chart-container">
+            <canvas id="myChart"></canvas>
+        </div>
+
+        <div class="ticket-list">
+            <h3>Últimos Chamados</h3>
+            <table>
+                <tr>
+                    <th>ID</th>
+                    <th>Assunto</th>
+                    <th>Status</th>
+                    <th>Prioridade</th>
+                </tr>
+                <tr>
+                    <td>#1023</td>
+                    <td>Erro no Login do ERP</td>
+                    <td><span class="badge red">Aberto</span></td>
+                    <td>Alta</td>
+                </tr>
+                <tr>
+                    <td>#1022</td>
+                    <td>Instalação de Impressora</td>
+                    <td><span class="badge green">Fechado</span></td>
+                    <td>Baixa</td>
+                </tr>
+                <tr>
+                    <td>#1021</td>
+                    <td>Lentidão na Rede</td>
+                    <td><span class="badge orange">Em Análise</span></td>
+                    <td>Média</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
