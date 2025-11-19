@@ -10,69 +10,150 @@
     <div class="sidebar">
         <h2>Thindesk Clone</h2>
         <ul>
-            <li>Dashboard</li>
-            <li>Meus Chamados</li>
-            <li>Abrir Chamado</li>
-            <li>Configurações</li>
+            <li data-page="dashboard">Dashboard</li>
+            <li data-page="tickets">Meus Chamados</li>
+            <li data-page="new-ticket">Abrir Chamado</li>
+            <li data-page="settings">Configurações</li>
         </ul>
     </div>
     <div class="main-content">
-        <header>
-            <h1>Visão Geral do Suporte</h1>
-            <div class="user-info">Usuário: Admin | Versão: 1.0.0-beta</div>
-        </header>
-        
-        <div class="cards">
-            <div class="card blue">
-                <h3>Chamados Abertos</h3>
-                <p>12</p>
+        <!-- Página Dashboard (conteúdo existente) -->
+        <div id="dashboard-page" class="page active">
+            <header>
+                <h1>Visão Geral do Suporte</h1>
+                <div class="user-info">Usuário: Admin | Versão: 1.0.0-beta</div>
+            </header>
+            
+            <div class="cards">
+                <div class="card blue">
+                    <h3>Chamados Abertos</h3>
+                    <p>12</p>
+                </div>
+                <div class="card orange">
+                    <h3>Em Andamento</h3>
+                    <p>5</p>
+                </div>
+                <div class="card green">
+                    <h3>Concluídos (Hoje)</h3>
+                    <p>8</p>
+                </div>
+                <div class="card red">
+                    <h3>Críticos</h3>
+                    <p>2</p>
+                </div>
             </div>
-            <div class="card orange">
-                <h3>Em Andamento</h3>
-                <p>5</p>
+
+            <div class="chart-container">
+                <canvas id="myChart"></canvas>
             </div>
-            <div class="card green">
-                <h3>Concluídos (Hoje)</h3>
-                <p>8</p>
-            </div>
-            <div class="card red">
-                <h3>Críticos</h3>
-                <p>2</p>
+
+            <div class="ticket-list">
+                <h3>Últimos Chamados</h3>
+                <table>
+                    <tr>
+                        <th>ID</th>
+                        <th>Assunto</th>
+                        <th>Status</th>
+                        <th>Prioridade</th>
+                    </tr>
+                    <tr>
+                        <td>#1023</td>
+                        <td>Erro no Login do ERP</td>
+                        <td><span class="badge red">Aberto</span></td>
+                        <td>Alta</td>
+                    </tr>
+                    <tr>
+                        <td>#1022</td>
+                        <td>Instalação de Impressora</td>
+                        <td><span class="badge green">Fechado</span></td>
+                        <td>Baixa</td>
+                    </tr>
+                    <tr>
+                        <td>#1021</td>
+                        <td>Lentidão na Rede</td>
+                        <td><span class="badge orange">Em Análise</span></td>
+                        <td>Média</td>
+                    </tr>
+                </table>
             </div>
         </div>
 
-        <div class="chart-container">
-            <canvas id="myChart"></canvas>
+        <!-- Página Configurações -->
+        <div id="settings-page" class="page">
+            <header>
+                <h1>Configurações</h1>
+            </header>
+            
+            <div class="settings-container">
+                <div class="settings-card">
+                    <h3>Aparência</h3>
+                    <div class="setting-item">
+                        <label for="dark-mode-toggle">
+                            <span>Modo Escuro</span>
+                            <span class="setting-description">Ative o tema escuro para reduzir o cansaço visual</span>
+                        </label>
+                        <label class="toggle-switch">
+                            <input type="checkbox" id="dark-mode-toggle">
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                </div>
+            </div>
         </div>
 
-        <div class="ticket-list">
-            <h3>Últimos Chamados</h3>
-            <table>
-                <tr>
-                    <th>ID</th>
-                    <th>Assunto</th>
-                    <th>Status</th>
-                    <th>Prioridade</th>
-                </tr>
-                <tr>
-                    <td>#1023</td>
-                    <td>Erro no Login do ERP</td>
-                    <td><span class="badge red">Aberto</span></td>
-                    <td>Alta</td>
-                </tr>
-                <tr>
-                    <td>#1022</td>
-                    <td>Instalação de Impressora</td>
-                    <td><span class="badge green">Fechado</span></td>
-                    <td>Baixa</td>
-                </tr>
-                <tr>
-                    <td>#1021</td>
-                    <td>Lentidão na Rede</td>
-                    <td><span class="badge orange">Em Análise</span></td>
-                    <td>Média</td>
-                </tr>
-            </table>
+        <!-- Página Abrir Chamado -->
+        <div id="new-ticket-page" class="page">
+            <header>
+                <h1>Abrir Novo Chamado</h1>
+            </header>
+            
+            <div class="form-container">
+                <form id="new-ticket-form" class="ticket-form">
+                    <div class="form-group">
+                        <label for="ticket-subject">Assunto *</label>
+                        <input type="text" id="ticket-subject" name="subject" required placeholder="Ex: Erro no login do sistema">
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="ticket-priority">Prioridade *</label>
+                            <select id="ticket-priority" name="priority" required>
+                                <option value="">Selecione...</option>
+                                <option value="Baixa">Baixa</option>
+                                <option value="Média">Média</option>
+                                <option value="Alta">Alta</option>
+                                <option value="Crítica">Crítica</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="ticket-category">Categoria *</label>
+                            <select id="ticket-category" name="category" required>
+                                <option value="">Selecione...</option>
+                                <option value="Hardware">Hardware</option>
+                                <option value="Software">Software</option>
+                                <option value="Rede">Rede</option>
+                                <option value="Acesso">Acesso</option>
+                                <option value="Outro">Outro</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="ticket-description">Descrição *</label>
+                        <textarea id="ticket-description" name="description" rows="6" required placeholder="Descreva detalhadamente o problema ou solicitação..."></textarea>
+                    </div>
+                    
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-secondary" id="cancel-btn">Cancelar</button>
+                        <button type="submit" class="btn btn-primary">Abrir Chamado</button>
+                    </div>
+                </form>
+                
+                <div id="success-message" class="success-message" style="display: none;">
+                    <p>✓ Chamado criado com sucesso!</p>
+                </div>
+            </div>
         </div>
     </div>
 
