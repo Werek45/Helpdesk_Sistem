@@ -19,7 +19,7 @@ header { display: flex; justify-content: space-between; align-items: center; mar
 .page { display: none; }
 .page.active { display: block; }
 
-/* Configurações */
+/* Config */
 .settings-container { max-width: 800px; }
 .settings-card { background: white; padding: 25px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); margin-bottom: 20px; }
 .settings-card h3 { margin: 0 0 20px 0; color: #333; }
@@ -37,7 +37,7 @@ header { display: flex; justify-content: space-between; align-items: center; mar
 input:checked + .slider { background-color: #17a2b8; }
 input:checked + .slider:before { transform: translateX(26px); }
 
-/* Dark Mode Styles */
+/* Dark Mode*/
 body.dark-mode { background-color: #1a1a1a; color: #e0e0e0; }
 body.dark-mode .sidebar { background-color: #2d2d2d; }
 body.dark-mode .sidebar li { border-bottom-color: #404040; }
