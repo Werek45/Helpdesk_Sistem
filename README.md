@@ -2,7 +2,7 @@
 
 > **Versão:** 1.0.0-beta
 
-Um protótipo de interface para um sistema corporativo de Helpdesk (Service Desk), desenvolvido como parte de uma atividade acadêmica de Engenharia de Software. O projeto simula o fluxo de gerenciamento de chamados técnicos, visualização de métricas e configurações de usuário.
+Um protótipo de interface para um sistema corporativo de Helpdesk (Service Desk), desenvolvido como parte de uma atividade acadêmica de Engenharia de Software. O projeto simula o fluxo de gerenciamento de chamados técnicos, visualização de métricas e configurações de usuário. (ainda em desenvolvimento)
 
 ![Status do Projeto](https://img.shields.io/badge/Status-Beta-orange) ![License](https://img.shields.io/badge/License-MIT-green)
 
