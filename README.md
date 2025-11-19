@@ -8,7 +8,6 @@ Um protótipo de interface para um sistema corporativo de Helpdesk (Service Desk
 
 ## 📸 Preview
 
-*(Adicione um print da tela do seu dashboard aqui e coloque na pasta do projeto, ex: `screenshot.png`)*
 ![Dashboard Screenshot](./screenshot.png)
 
 ## 🚀 Funcionalidades
