@@ -6,7 +6,7 @@ if (typeof Chart !== 'undefined') {
             labels: ['Seg', 'Ter', 'Qua', 'Qui', 'Sex'],
             datasets: [{
                 label: 'Chamados Resolvidos por Dia',
-                data: [12, 19, 3, 5, 2],
+                data: [4, 19, 10, 16, 14],
                 backgroundColor: 'rgba(54, 162, 235, 0.6)',
                 borderColor: 'rgba(54, 162, 235, 1)',
                 borderWidth: 1
